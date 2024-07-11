@@ -1,3 +1,6 @@
+cd ..
+git clone https://github.com/THU-MIG/yolov10.git
+
 pip install -U torch torchvision torchaudio
 
 pip install -U onnx onnxruntime pycocotools pyyaml scipy \

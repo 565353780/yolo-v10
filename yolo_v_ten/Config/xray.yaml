@@ -1,0 +1,19 @@
+path: /home/chli/Dataset/X-Ray
+train:
+  - train/images
+val:
+  - train/images
+test:
+  - test1
+
+# Classes
+names:
+  0: knife
+  1: wrench
+  2: glassbottle
+  3: drinkbottle
+  4: powerbank
+  5: umbrella
+  6: metalcup
+  7: lighter
+
