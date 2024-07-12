@@ -5,7 +5,7 @@ pip install -U torch torchvision torchaudio
 
 pip install -U onnx onnxruntime pycocotools pyyaml scipy \
   onnxsim gradio opencv-python psutil py-cpuinfo \
-  huggingface-hub safetensors
+  huggingface-hub safetensors seaborn tensorboard
 
 if [ "$(uname)" = "Linux" ]; then
   pip install -U onnxruntime-gpu
