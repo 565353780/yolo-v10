@@ -29,6 +29,7 @@ with torch.no_grad():
         image_file_path = test_image_folder_path + image_filename
 
         results = model.predict(image_file_path)[0]
+
         boxes = results.boxes.data.detach().clone().cpu().numpy()
 
         for i in range(8):

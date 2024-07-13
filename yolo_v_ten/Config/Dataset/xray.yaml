@@ -2,7 +2,7 @@ path: /home/chli/Dataset/X-Ray
 train:
   - train/images
 val:
-  - train/images
+  - val/images
 test:
   - test1
 
@@ -16,4 +16,3 @@ names:
   5: umbrella
   6: metalcup
   7: lighter
-
