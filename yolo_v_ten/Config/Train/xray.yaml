@@ -4,9 +4,9 @@ mode: train # (str) YOLO mode, i.e. train, val, predict, export, track, benchmar
 # Train settings -------------------------------------------------------------------------------------------------------
 model: # (str, optional) path to model file, i.e. yolov8n.pt, yolov8n.yaml
 data: # (str, optional) path to data file, i.e. coco128.yaml
-epochs: 500 # (int) number of epochs to train for
+epochs: 4000 # (int) number of epochs to train for
 time: # (float, optional) number of hours to train for, overrides epochs if supplied
-patience: 100 # (int) epochs to wait for no observable improvement for early stopping of training
+patience: 1000 # (int) epochs to wait for no observable improvement for early stopping of training
 batch: -1 # (int) number of images per batch (-1 for AutoBatch)
 imgsz: 640 # (int | list) input images size as int for train and val modes, or list[w,h] for predict and export modes
 save: True # (bool) save train checkpoints and predict results
@@ -19,7 +19,7 @@ project: # (str, optional) project name
 name: # (str, optional) experiment name, results saved to 'project/name' directory
 exist_ok: False # (bool) whether to overwrite existing experiment
 pretrained: True # (bool | str) whether to use a pretrained model (bool) or a model to load weights from (str)
-optimizer: AdamW # (str) optimizer to use, choices=[SGD, Adam, Adamax, AdamW, NAdam, RAdam, RMSProp, auto]
+optimizer: auto # (str) optimizer to use, choices=[SGD, Adam, Adamax, AdamW, NAdam, RAdam, RMSProp, auto]
 verbose: True # (bool) whether to print verbose output
 seed: 0 # (int) random seed for reproducibility
 deterministic: True # (bool) whether to enable deterministic mode
@@ -85,7 +85,7 @@ workspace: 4 # (int) TensorRT: workspace size (GB)
 nms: False # (bool) CoreML: add NMS
 
 # Hyperparameters ------------------------------------------------------------------------------------------------------
-lr0: 0.001 # (float) initial learning rate (i.e. SGD=1E-2, Adam=1E-3)
+lr0: 0.01 # (float) initial learning rate (i.e. SGD=1E-2, Adam=1E-3)
 lrf: 0.01 # (float) final learning rate (lr0 * lrf)
 momentum: 0.937 # (float) SGD momentum/Adam beta1
 weight_decay: 0.0005 # (float) optimizer weight decay 5e-4
@@ -103,17 +103,17 @@ hsv_h: 0.015 # (float) image HSV-Hue augmentation (fraction)
 hsv_s: 0.7 # (float) image HSV-Saturation augmentation (fraction)
 hsv_v: 0.4 # (float) image HSV-Value augmentation (fraction)
 degrees: 180.0 # (float) image rotation (+/- deg)
-translate: 0.2 # (float) image translation (+/- fraction)
+translate: 0.1 # (float) image translation (+/- fraction)
 scale: 0.5 # (float) image scale (+/- gain)
-shear: 10.0 # (float) image shear (+/- deg)
-perspective: 0.0001 # (float) image perspective (+/- fraction), range 0-0.001
+shear: 0.0 # (float) image shear (+/- deg)
+perspective: 0.0 # (float) image perspective (+/- fraction), range 0-0.001
 flipud: 0.5 # (float) image flip up-down (probability)
 fliplr: 0.5 # (float) image flip left-right (probability)
-bgr: 0.2 # (float) image channel BGR (probability)
-mosaic: 1.0 # (float) image mosaic (probability)
+bgr: 0.5 # (float) image channel BGR (probability)
+mosaic: 0.5 # (float) image mosaic (probability)
 mixup: 0.5 # (float) image mixup (probability)
 copy_paste: 0.5 # (float) segment copy-paste (probability)
-auto_augment: autoaugment # (str) auto augmentation policy for classification (randaugment, autoaugment, augmix)
+auto_augment: randaugment # (str) auto augmentation policy for classification (randaugment, autoaugment, augmix)
 erasing: 0.4 # (float) probability of random erasing during classification training (0-1)
 crop_fraction: 1.0 # (float) image crop fraction for classification evaluation/inference (0-1)
 
