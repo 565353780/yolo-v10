@@ -9,7 +9,7 @@ from tqdm import tqdm
 from ultralytics import YOLOv10
 
 with torch.no_grad():
-    model_file_path = '../yolov10/runs/detect/train3/weights/best.pt'
+    model_file_path = '../yolov10/runs/detect/train/weights/best.pt'
     test_image_folder_path = '/home/chli/Dataset/X-Ray/test1/'
 
     model = YOLOv10(model_file_path, 'detect')
@@ -41,5 +41,5 @@ with torch.no_grad():
 
     os.makedirs('./output/', exist_ok=True)
 
-    with open('./output/yolov10n_train4k_mAP72.json', 'w') as f:
+    with open('./output/yolov10x_train4k_mAP82.json', 'w') as f:
         json.dump(results_list, f)
